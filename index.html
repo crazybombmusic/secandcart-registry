@@ -8,6 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background: #000;
@@ -16,11 +20,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .container {
-  width: min(90vw, 420px);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -28,7 +37,14 @@ body {
   font-weight: 200;
   letter-spacing: 6px;
   font-size: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 input {
@@ -40,7 +56,6 @@ input {
   color: white;
   outline: none;
   text-align: center;
-  margin-bottom: 14px;
   font-size: 14px;
 }
 
@@ -53,7 +68,7 @@ button {
   color: black;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.25s ease;
 }
 
 button:hover {
@@ -61,7 +76,7 @@ button:hover {
 }
 
 .result {
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 13px;
   opacity: 0.7;
 }
@@ -74,9 +89,17 @@ button:hover {
 
   <div class="brand">SECANDCART</div>
 
-  <input type="text" id="unionId" placeholder="Enter Union ID">
+  <div class="input-group">
 
-  <button onclick="findUnion()">Find</button>
+    <input 
+      type="text" 
+      id="unionId" 
+      placeholder="Enter Union ID"
+    >
+
+    <button onclick="findUnion()">Find</button>
+
+  </div>
 
   <div class="result" id="result"></div>
 
@@ -84,7 +107,6 @@ button:hover {
 
 <script>
 
-// 🔥 Реестр Union ID
 const registry = {
   "UN-20251030-8339": "https://sites.google.com/view/secandcart/un-20251030-8339"
 };
